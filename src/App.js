@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 
 const ShareButton = () => {
-
   const handleShare = () => {
-
     if (navigator.share) {
-
       navigator.share({
         title: 'Share this content',
         text: 'Check out this awesome content!',
@@ -25,9 +21,7 @@ const ShareButton = () => {
 
 
   return (
-
     <button onClick={handleShare}>Share</button>
-
   );
 
 };
