@@ -1,22 +1,42 @@
 import logo from './logo.svg';
 import './App.css';
 
+const ShareButton = () => {
+
+  const handleShare = () => {
+
+    if (navigator.share) {
+
+      navigator.share({
+        title: 'Share this content',
+        text: 'Check out this awesome content!',
+        url: 'https://example.com',
+      })
+        .then(() => console.log('Shared successfully'))
+        .catch((error) => console.error('Error sharing:', error));
+
+    } else {
+      // Fallback to modal window if share menu is not available
+      console.log(navigator.share)
+
+    }
+
+  };
+
+
+  return (
+
+    <button onClick={handleShare}>Share</button>
+
+  );
+
+};
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <ShareButton />
       </header>
     </div>
   );
